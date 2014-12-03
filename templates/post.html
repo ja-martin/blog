@@ -1,0 +1,28 @@
+{% extends "/templates/base.html" %}
+{% block content %}
+	<div class="large-9 columns" role="content">
+		<div class="panel">
+			<article>
+			  <h3>{{ post.subject }}</h3>
+			  <h6>Written by <a href="#">{{ post.author.username }}</a> on {{ post.date.strftime('%B %d, %Y') }}.</h6>
+			  <img src="{{ post.image }}"/>
+			  <p>{{ post.content }}</p>
+			</article>
+		</div>
+	</div>
+
+	<aside class="large-3 columns">
+    <h5>Categories</h5>
+    <ul class="side-nav">
+    	{% for category in categories %}
+	      <li><a href="#">{{ category }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <div class="panel">
+      <h5>Featured</h5>
+      <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+      <a href="#">Read More →</a>
+    </div>
+	</aside>
+{% endblock %}

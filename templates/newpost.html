@@ -1,0 +1,63 @@
+{% extends '/templates/base.html' %}
+{% block content %}
+	<div class="large-9 large-centered columns">
+    <div>
+      <h5 class="title">New Post</h5>
+      <div class="content">
+        <form method="post">
+          <div class="row collapse">
+            <div class="large-2 columns">
+              <label class="inline">Subject</label>
+            </div>
+            <div class="large-10 columns">
+              <input type="text" name="subject" value="{{ subject }}" placeholder="Post subject">
+            </div>
+          </div>
+          {% if subject_err %}
+	          <div class="row collapse">
+	          	<small class="error">{{ subject_err }}</small>
+	          </div>
+          {% endif %}
+          <div class="row collapse">
+            <div class="large-2 columns">
+              <label class="inline">Category</label>
+            </div>
+            <div class="large-10 columns">
+              <select name="category">
+              	{% for category in categories %}
+              		<option value="{{ category }}">{{ category }}</option>
+              	{% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="large-2 columns">
+              <label class="inline">Image url</label>
+            </div>
+            <div class="large-10 columns">
+              <input type="text" name="image" value="{{ image }}" placeholder="http://placehold.it/400x240&text=[img]">
+            </div>
+          </div>
+          {% if image_err %}
+	          <div class="row collapse">
+	          	<small class="error">{{ image_err }}</small>
+	          </div>
+          {% endif %}
+          <label>Content</label>
+          <div class="row collapse">
+	          <textarea name="content" value="{{ content }}" placeholder="Write your content here" rows="20"></textarea>
+          </div>
+          {% if content_err %}
+	          <div class="row collapse">
+	          	<small class="error">{{ content_err }}</small>
+	          </div>
+          {% endif %}
+          <button type="submit" class="radius button">Submit</button>
+        </form>
+      </div>
+    </div>
+	</div>
+{% endblock %}
+ 
+     
+    

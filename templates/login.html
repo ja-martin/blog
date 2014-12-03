@@ -1,0 +1,33 @@
+{% extends "/templates/base.html" %}
+{% block content %}
+	<div class="large-6 large-centered columns">
+	  <div class="signup-panel">
+	    <p class="welcome"> Welcome to Jose's blog!</p>
+	    <form method="post">
+	      <div class="row collapse">
+	        <div class="small-2  columns">
+	          <span class="prefix"><i class="fi-torso-female"></i></span>
+	        </div>
+	        <div class="small-10  columns">
+	          <input type="text" placeholder="username" name="username" value="{{username}}">
+	        </div>
+	        {% if username_err %}
+	          <small class="error">{{username_err}}</small>
+	        {% endif %}
+	      </div>
+	      <div class="row collapse">
+	        <div class="small-2 columns ">
+	          <span class="prefix"><i class="fi-lock"></i></span>
+	        </div>
+	        <div class="small-10 columns ">
+	          <input type="password" placeholder="password" name="password">
+	        </div>
+	        {% if password_err %}
+	          <small class="error">{{password_err}}</small>
+	        {% endif %}
+	      </div>
+	      <input type="submit" class="button" value="Login!">
+	    </form>
+	  </div>
+	</div>
+{% endblock %}

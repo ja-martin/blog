@@ -1,0 +1,50 @@
+{% extends "/templates/base.html" %}
+{% block content %}
+	<div class="large-9 columns" role="content">
+
+		{% if recent_entries %}
+			{% for entry in recent_entries %}
+				<article>
+				  <h3><a href="/post/{{ entry.key.id() }}">{{ entry.subject }}</a></h3>
+				  <h6>Written by <a href="#">{{ entry.author.username }}</a> on {{ entry.date.strftime('%B %d, %Y') }}.</h6>
+				  <div class="row">
+				    <div class="large-12 columns post-container">
+					    <div class="large-6 columns right">
+					      <img src="{{ entry.image }}"/>
+					    </div>
+				      <p class="post-preview">{{ entry.content }}</p>
+				    </div>
+				    <div class="large-12 columns">
+				    	<a class="button small radius" href="/post/{{ entry.key.id() }}">Continue reading →</a>
+				    </div>				    
+				  </div>
+				</article>
+
+				{% if not loop.last %}
+					<hr/>
+				{% endif %}
+			{% endfor %}
+		{% else %}
+			<p>No entries!</p>
+		{% endif %}
+
+	</div>
+	 
+
+	<aside class="large-3 columns">
+	 
+    <h5>Categories</h5>
+    <ul class="side-nav">
+    	{% for category in categories %}
+      	<li><a href="#">{{ category }}</a></li>
+    	{% endfor %}
+    </ul>
+
+    <div class="panel">
+      <h5>Featured</h5>
+      <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+      <a href="#">Read More →</a>
+    </div>
+	 
+	</aside>
+{% endblock %}
